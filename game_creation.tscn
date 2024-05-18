@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://uop58p180mfc"]
+
+[ext_resource type="Texture2D" uid="uid://p3kcg112as60" path="res://Resources/monitor.png" id="1_sbcvw"]
+
+[node name="game_creation" type="Node2D"]
+
+[node name="monitor" type="Sprite2D" parent="."]
+position = Vector2(359.986, 359)
+scale = Vector2(2.07501, 2.18607)
+texture = ExtResource("1_sbcvw")
+
+[node name="shutdown" type="Button" parent="."]
+offset_left = 536.0
+offset_top = 658.0
+offset_right = 567.0
+offset_bottom = 690.0

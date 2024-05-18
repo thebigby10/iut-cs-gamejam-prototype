@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://bke1mwinxcqfl"]
+
+[ext_resource type="Texture2D" uid="uid://p3kcg112as60" path="res://Resources/monitor.png" id="1_rbnau"]
+[ext_resource type="Script" path="res://bankrupcy.gd" id="1_y505n"]
+[ext_resource type="Shader" path="res://main.gdshader" id="3_ljgge"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4tgcs"]
+shader = ExtResource("3_ljgge")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[node name="Bankrupcy" type="Node2D"]
+script = ExtResource("1_y505n")
+
+[node name="shutdown" type="Button" parent="."]
+offset_left = 751.0
+offset_top = 924.0
+offset_right = 782.0
+offset_bottom = 956.0
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 176.0
+offset_top = 407.0
+offset_right = 786.0
+offset_bottom = 510.0
+theme_override_font_sizes/font_size = 36
+text = "BANKRUPTED!
+SHUTDOWN THE COMPUTER, NOW!"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_4tgcs")
+offset_left = 99.0
+offset_top = 116.0
+offset_right = 909.0
+offset_bottom = 816.0
+mouse_filter = 2
+
+[node name="monitor" type="Sprite2D" parent="."]
+position = Vector2(499.486, 500.335)
+scale = Vector2(2.87905, 3.05316)
+texture = ExtResource("1_rbnau")
+
+[connection signal="pressed" from="shutdown" to="." method="_on_shutdown_pressed"]

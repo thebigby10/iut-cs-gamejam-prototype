@@ -1,0 +1,146 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5hex8scxr20t"]
+
+[ext_resource type="Texture2D" uid="uid://p3kcg112as60" path="res://Resources/monitor.png" id="1_2ixyk"]
+[ext_resource type="Script" path="res://create.gd" id="1_rn18n"]
+[ext_resource type="PackedScene" uid="uid://eykue0t8lfnr" path="res://card.tscn" id="2_a3ohp"]
+[ext_resource type="Shader" path="res://main.gdshader" id="2_sm246"]
+
+[sub_resource type="SystemFont" id="SystemFont_btdac"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_spava"]
+shader = ExtResource("2_sm246")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[node name="create" type="Node2D"]
+script = ExtResource("1_rn18n")
+
+[node name="card" parent="." instance=ExtResource("2_a3ohp")]
+visible = false
+position = Vector2(312, 376)
+scale = Vector2(1.70347, 1.83015)
+
+[node name="shutdown" type="Button" parent="."]
+visible = false
+offset_left = 746.0
+offset_top = 919.0
+offset_right = 779.0
+offset_bottom = 953.0
+
+[node name="generate" type="Button" parent="."]
+offset_left = 565.0
+offset_top = 566.0
+offset_right = 845.0
+offset_bottom = 624.0
+theme_override_fonts/font = SubResource("SystemFont_btdac")
+theme_override_font_sizes/font_size = 36
+disabled = true
+text = "DEVELOP NEW"
+
+[node name="generate2" type="Button" parent="."]
+modulate = Color(0, 0, 0, 0)
+offset_left = 512.0
+offset_top = 490.0
+offset_right = 792.0
+offset_bottom = 548.0
+theme_override_fonts/font = SubResource("SystemFont_btdac")
+theme_override_font_sizes/font_size = 36
+text = "DEVELOP NEW"
+
+[node name="balance" type="Label" parent="."]
+offset_left = 569.0
+offset_top = 311.0
+offset_right = 751.0
+offset_bottom = 361.0
+theme_override_font_sizes/font_size = 36
+text = "BALANCE: "
+horizontal_alignment = 1
+
+[node name="back" type="Button" parent="."]
+offset_left = 626.0
+offset_top = 641.0
+offset_right = 791.0
+offset_bottom = 699.0
+theme_override_font_sizes/font_size = 36
+disabled = true
+text = "GO BACK"
+
+[node name="back2" type="Button" parent="."]
+modulate = Color(0, 0, 0, 0)
+offset_left = 564.0
+offset_top = 551.0
+offset_right = 729.0
+offset_bottom = 609.0
+theme_override_font_sizes/font_size = 36
+text = "GO BACK"
+
+[node name="sell" type="Button" parent="."]
+visible = false
+offset_left = 606.0
+offset_top = 378.0
+offset_right = 806.0
+offset_bottom = 436.0
+theme_override_font_sizes/font_size = 36
+text = "SELL GAME"
+
+[node name="price" type="Label" parent="."]
+visible = false
+offset_left = 662.0
+offset_top = 475.0
+offset_right = 716.0
+offset_bottom = 525.0
+theme_override_font_sizes/font_size = 36
+text = "$"
+horizontal_alignment = 1
+
+[node name="reputation" type="Label" parent="."]
+offset_left = 408.0
+offset_top = 771.0
+offset_right = 665.0
+offset_bottom = 821.0
+theme_override_font_sizes/font_size = 36
+text = "REPUTATION"
+
+[node name="reputation_bar" type="ProgressBar" parent="."]
+offset_left = 232.0
+offset_top = 832.0
+offset_right = 795.0
+offset_bottom = 886.0
+theme_override_font_sizes/font_size = 36
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_spava")
+offset_left = 91.0
+offset_top = 110.0
+offset_right = 901.0
+offset_bottom = 810.0
+mouse_filter = 2
+
+[node name="monitor" type="Sprite2D" parent="."]
+position = Vector2(497.486, 499.335)
+scale = Vector2(2.86175, 3.04702)
+texture = ExtResource("1_2ixyk")
+
+[connection signal="pressed" from="shutdown" to="." method="_on_shutdown_pressed"]
+[connection signal="pressed" from="generate2" to="." method="_on_balance_pressed"]
+[connection signal="pressed" from="back2" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="sell" to="." method="_on_sell_pressed"]

@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://kue2s0tenk78"]
+
+[ext_resource type="Script" path="res://intro.gd" id="1_4u7xh"]
+[ext_resource type="Shader" path="res://main.gdshader" id="1_jiou1"]
+[ext_resource type="Texture2D" uid="uid://p3kcg112as60" path="res://Resources/monitor.png" id="2_touhw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ei2nu"]
+shader = ExtResource("1_jiou1")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[node name="intro" type="Node2D"]
+script = ExtResource("1_4u7xh")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -77.0
+offset_top = 257.0
+offset_right = 1072.0
+offset_bottom = 907.0
+theme_override_font_sizes/font_size = 30
+text = "JOB OFFER:
+IS IT HARD TO COOK A GAME?
+COME JOIN IN THE WORLD OF GAME DEVELOPING.
+DON'T GO BANKRUPT AND DON'T DEVELOPE SHIT GAMES.
+GOOD LUCK"
+horizontal_alignment = 1
+
+[node name="start" type="Button" parent="."]
+offset_left = 179.0
+offset_top = 562.0
+offset_right = 818.0
+offset_bottom = 759.0
+theme_override_font_sizes/font_size = 36
+text = "JOIN"
+
+[node name="shutdown" type="Button" parent="."]
+offset_left = 753.0
+offset_top = 919.0
+offset_right = 784.0
+offset_bottom = 951.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ei2nu")
+offset_left = 98.0
+offset_top = 118.0
+offset_right = 902.0
+offset_bottom = 802.0
+mouse_filter = 2
+
+[node name="monitor" type="Sprite2D" parent="."]
+position = Vector2(500.256, 497.835)
+scale = Vector2(2.88349, 3.03782)
+texture = ExtResource("2_touhw")
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="shutdown" to="." method="_on_shutdown_pressed"]
