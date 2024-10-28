@@ -4,5 +4,5 @@
 ### A simplified gamedev sim.
 
 ## Screenshots
-![Screenshot_২০২৪১০২৯_০১২৮১০](https://github.com/user-attachments/assets/1434d3e4-c549-43ef-8e90-bf3d6cd7ebf3)
-![Screenshot_২০২৪১০২৯_০১২৮৩৪](https://github.com/user-attachments/assets/fb525b52-a3de-4d32-93b5-7bea7ac9299f)
+<img src = "https://github.com/user-attachments/assets/1434d3e4-c549-43ef-8e90-bf3d6cd7ebf3" width = "50%"> 
+<img src = "https://github.com/user-attachments/assets/fb525b52-a3de-4d32-93b5-7bea7ac9299f" width = "50%">
